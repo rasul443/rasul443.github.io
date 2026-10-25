@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rasul Igitov – SOC Analyst</title>
+<meta name="description" content="SOC Analyst focused on threat detection and incident response. BTL1 certified. Baku, Azerbaijan.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0c1424;--panel:#131d33;--panel2:#18243f;--line:#26365a;--text:#e8eefb;--mute:#8fa1c4;--crit:#ff5d6c;--high:#ff9f43;--med:#ffd166;--low:#4cc9f0;--ok:#5ee6a8;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:400 17px/1.6 Sora,system-ui,sans-serif;background-image:radial-gradient(circle at 85% -10%,#1b2d5c 0,transparent 45%)}
+a{color:var(--low)}
+a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid var(--low);outline-offset:3px}
+.mono{font-family:"JetBrains Mono",monospace}
+.bar{position:sticky;top:0;z-index:5;background:rgba(12,20,36,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar .in{max-width:940px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:18px;overflow-x:auto;white-space:nowrap}
+.logo{font:700 15px "JetBrains Mono",monospace;color:var(--text);text-decoration:none}
+.bar a.t{color:var(--mute);text-decoration:none;font-size:14px}
+.bar a.t:hover{color:var(--text)}
+.live{margin-left:auto;display:flex;align-items:center;gap:8px;font:400 13px "JetBrains Mono",monospace;color:var(--ok)}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 0 rgba(94,230,168,.6);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 9px rgba(94,230,168,0)}100%{box-shadow:0 0 0 0 rgba(94,230,168,0)}}
+.wrap{max-width:940px;margin:0 auto;padding:0 20px}
+.hero{padding:54px 0 30px}
+h1{font-size:clamp(42px,11vw,88px);font-weight:800;letter-spacing:-.03em;line-height:1;margin:0 0 14px}
+.role{font-size:clamp(18px,4vw,24px);color:var(--low);margin:0 0 8px;font-weight:500}
+.meta{color:var(--mute);margin:0 0 24px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{padding:12px 20px;border-radius:10px;border:1px solid var(--low);color:var(--low);text-decoration:none;font-weight:700}
+.btn.main{background:var(--low);color:#04121c}
+.feed{margin-top:36px;background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.feed header{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;background:var(--panel2);border-bottom:1px solid var(--line);font:400 13px "JetBrains Mono",monospace;color:var(--mute)}
+.feed button{background:none;border:1px solid var(--line);color:var(--mute);border-radius:6px;padding:3px 10px;font:inherit;cursor:pointer}
+.rows{padding:6px 0;min-height:196px}
+.row{display:grid;grid-template-columns:78px 1fr;gap:4px 12px;padding:10px 16px;border-bottom:1px solid var(--line);font:400 13.5px/1.5 "JetBrains Mono",monospace;opacity:0;transform:translateY(8px);transition:.4s}
+.row.on{opacity:1;transform:none}
+.row:last-child{border-bottom:0}
+.sev{font-weight:700;font-size:12px}
+.crit{color:var(--crit)}.high{color:var(--high)}.med{color:var(--med)}.low{color:var(--low)}.ok{color:var(--ok)}
+.row p{margin:0;color:var(--text)}.row small{grid-column:2;color:var(--mute);font-size:12.5px}
+section{padding:40px 0;border-top:1px solid var(--line)}
+h2{font-size:28px;font-weight:700;margin:0 0 20px;letter-spacing:-.01em}
+h3{font-size:19px;margin:0 0 4px;font-weight:700}
+.ev{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--low);border-radius:12px;padding:16px 18px;margin-bottom:14px}
+.ev.hi{border-left-color:var(--high)}.ev.g{border-left-color:var(--ok)}
+.when{font:400 13px "JetBrains Mono",monospace;color:var(--mute);margin:0 0 6px}
+ul{padding-left:20px;margin:8px 0}li{margin:5px 0}
+.case{background:linear-gradient(160deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:16px;padding:22px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 0;padding:0;list-style:none}
+.chips li{margin:0;padding:5px 11px;border:1px solid var(--line);border-radius:999px;background:var(--bg);font:400 13px "JetBrains Mono",monospace}
+details{border-top:1px solid var(--line);padding:12px 0}
+summary{cursor:pointer;font-weight:700}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.box{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px}
+.box h3{font-size:16px;color:var(--low)}
+.creds{display:flex;flex-wrap:wrap;gap:10px;padding:0;list-style:none}
+.creds li{margin:0;padding:9px 14px;border-radius:10px;border:1px solid var(--ok);color:var(--ok);font-weight:700;font-size:15px}
+.cta{margin:20px 0 70px;padding:28px;border-radius:16px;background:var(--low);color:#04121c}
+.cta h2{margin-bottom:6px}.cta a{color:#04121c;font-size:clamp(18px,4.6vw,26px);font-weight:800}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.row{transition:none}.dot{animation:none}}
+</style>
+</head>
+<body>
+<div class="bar"><div class="in">
+<a class="logo" href="#top">RI//SOC</a>
+<a class="t" href="#events">Events</a><a class="t" href="#case">Case</a><a class="t" href="#tools">Tools</a><a class="t" href="#creds">Credentials</a>
+<span class="live"><span class="dot"></span>Available</span>
+</div></div>
+
+<main class="wrap" id="top">
+<div class="hero">
+<h1>Rasul<br>Igitov</h1>
+<p class="role">SOC Analyst · Threat Detection &amp; Incident Response</p>
+<p class="meta">Baku, Azerbaijan · Open to on-site, hybrid and remote roles</p>
+<div class="btns">
+<a class="btn main" href="mailto:igitovrasul84@gmail.com">Email me</a>
+<a class="btn" href="Rasul_Igitov_CV.pdf">Download CV</a>
+</div>
+<div class="feed">
+<header><span>alert queue · live</span><button id="replay" type="button">Replay</button></header>
+<div class="rows" id="rows"></div>
+</div>
+</div>
+
+<section id="events">
+<h2>Events</h2>
+<div class="ev g"><p class="when">Aug 2026 – now</p><h3>Blue Team Mentor · Hamburg IT Baku</h3>
+<ul><li>Teach SOC alert triage, log analysis and incident response workflows.</li><li>Guide hands-on work in Splunk (SPL), Wazuh and MITRE ATT&amp;CK mapping.</li><li>Review phishing investigations and reports, and teach writing and tuning Sigma rules.</li></ul></div>
+<div class="ev hi"><p class="when">2026</p><h3>R.I.S.K. Internship · practical assessment</h3>
+<ul><li>Rebuilt a multi-step attack from log files, analyzed a suspicious executable and investigated a phishing email.</li><li>Delivered a full evidence report with screenshots.</li></ul></div>
+<div class="ev"><p class="when">2025 – 2026</p><h3>Millisec Cybersecurity Program · Blue Team</h3>
+<ul><li>Built and defended a full enterprise environment. See the featured case below.</li></ul></div>
+<div class="ev"><p class="when">2023 – 2027</p><h3>B.Sc. Information Security</h3><p style="margin:0">Azerbaijan Technical University, in progress.</p></div>
+</section>
+
+<section id="case">
+<h2>Featured case</h2>
+<div class="case">
+<p class="when">Final project · Millisec · 2026</p>
+<h3 style="font-size:23px">Securing the infrastructure of “MetsWEB”</h3>
+<p>I built a complete company network from zero, defended it with a SIEM, XDR and threat intelligence, then attacked it myself to check the defenses worked. The report covers 19 tasks with screenshots.</p>
+<p><a class="btn" href="Rasul_Igitov_MetsWEB_Project.pdf">Read the full report (PDF)</a></p>
+<ul class="chips"><li>Active Directory</li><li>Splunk</li><li>Sigma</li><li>Suricata</li><li>OpenCTI</li><li>Bitdefender XDR</li><li>T-Pot</li><li>Cobalt Strike</li></ul>
+<details open><summary>Infrastructure</summary><ul>
+<li>Two Domain Controllers with replication, two domain-joined clients and BitLocker on both DCs.</li>
+<li>Domain Controller backup and restore.</li>
+<li>Firewall, updates and Group Policy.</li>
+<li>Web server, SCCM software management and an iRedMail server.</li></ul></details>
+<details><summary>Detection and monitoring</summary><ul>
+<li>Splunk SIEM with log analysis and a custom dashboard.</li>
+<li>Sigma rule integration.</li>
+<li>Suricata IDS/IPS.</li>
+<li>Machine learning detection with Splunk MLTK.</li></ul></details>
+<details><summary>Protection</summary><ul>
+<li>Sucuri WAF configuration.</li>
+<li>T-Pot honeypot to collect attacker activity.</li>
+<li>Bitdefender GravityZone XDR with policy configuration.</li></ul></details>
+<details><summary>Threat intelligence and testing</summary><ul>
+<li>OpenCTI platform for cyber threat intelligence.</li>
+<li>Ransomware simulation.</li>
+<li>Vulnerability scanning and patch management.</li>
+<li>Cobalt Strike and defense evasion tests.</li></ul></details>
+</div>
+</section>
+
+<section id="tools">
+<h2>Tools</h2>
+<div class="grid">
+<div class="box"><h3>SIEM and detection</h3>Splunk, SPL, Sigma, Splunk MLTK, Wazuh</div>
+<div class="box"><h3>Endpoint and network</h3>Bitdefender XDR, Suricata, Sucuri WAF</div>
+<div class="box"><h3>Threat intel and IR</h3>OpenCTI, MISP, AlienVault OTX, AbuseIPDB, MITRE ATT&amp;CK</div>
+<div class="box"><h3>Infrastructure</h3>Active Directory, GPO, LAPS, Windows, Linux, SCCM</div>
+<div class="box"><h3>Vulnerability and attack</h3>Nessus, Acunetix, Cobalt Strike, C# malware simulation</div>
+<div class="box"><h3>Data security</h3>iRedMail (TLS, SPF, DKIM, DMARC), BitLocker, backups</div>
+<div class="box"><h3>Automation</h3>PowerShell, REST APIs, Task Scheduler</div>
+</div>
+</section>
+
+<section id="creds">
+<h2>Credentials and training</h2>
+<ul class="creds"><li>BTL1</li><li>BTJA</li><li>Cisco Endpoint Security</li><li>Millisec Blue Team</li></ul>
+<ul>
+<li><b>TryHackMe Premium:</b> Network Security, Red Team and Blue Team paths, plus incident response, forensics and malware rooms.</li>
+<li><b>LetsDefend:</b> SOC simulations for triage, log analysis, phishing and escalation.</li>
+<li><b>BTL1:</b> all 6 domains and the practical incident response exam.</li>
+<li><b>Languages:</b> Azerbaijani, Russian, German (B2), English (B2).</li>
+</ul>
+</section>
+
+<div class="cta">
+<h2>Hiring for a SOC role?</h2>
+<a href="mailto:igitovrasul84@gmail.com">igitovrasul84@gmail.com</a>
+</div>
+</main>
+
+<script>
+(function(){
+var data=[
+["crit","CRITICAL","Suspicious PowerShell on WS-014","Sigma match · T1059.001 · escalated to incident"],
+["high","HIGH","Phishing email reported by user","Headers and URLs checked in MISP and AbuseIPDB"],
+["med","MEDIUM","Repeated failed logins from one IP","T-Pot telemetry · IP added to WAF blocklist"],
+["ok","RESOLVED","Incident closed, report written","Evidence, timeline and recommendations documented"]
+];
+var box=document.getElementById("rows"),timers=[];
+var calm=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+function run(){
+timers.forEach(clearTimeout);timers=[];box.innerHTML="";
+data.forEach(function(d,i){
+var r=document.createElement("div");r.className="row";
+r.innerHTML='<span class="sev '+d[0]+'">'+d[1]+'</span><p>'+d[2]+'</p><small>'+d[3]+'</small>';
+box.appendChild(r);
+timers.push(setTimeout(function(){r.classList.add("on")},calm?0:500+i*900));
+});
+}
+document.getElementById("replay").addEventListener("click",run);
+run();
+})();
+</script>
+</body>
+</html>
